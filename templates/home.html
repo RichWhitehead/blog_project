@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Blog Home Page</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-  <header>
-    <h1>This is my Header</h1>
-  </header>
-  <main>
-    <h2>This is the main</h2>
-    <p>This is my home page</p>
-  </main>
-  <footer>
-    <h2>This is my footer</h2>
-  </footer> 
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %} 
+ <title>List of Blogs</title>
+{% endblock title %}
+
+{% block content %}
+
+    <h2>Blog List</h2>
+    <ul>
+      {% for blog in object_list %}
+        <li>Blog post: <a href= "{% url 'blog' blog.id %}">{{ blog.title }}</a></li>
+
+      {% endfor %}
+    </ul>
+{% endblock content %}
+

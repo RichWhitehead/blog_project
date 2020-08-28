@@ -1,6 +1,16 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, DetailView
+from .models import Blog
 # Create your views here.
 
-class HomePageView(TemplateView):
+class HomePageView(ListView):
   template_name = 'home.html'
+  model = Blog
+  
+class BlogsPageView(DetailView):
+  template_name = 'post_detail.html'
+  model = Blog
+  
+# class BlogsDetailView()
+  
+
